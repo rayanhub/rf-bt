@@ -313,7 +313,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 	  /* Re-arm StartRX */
 	  //SI4463_Rx_Hop	(&si4463, 0x42, 0x0e, 0x27, 0x63, 0x08, 0x77); // 440,500 MHz
- 	  SI4463_StartRx(&si4463, RADIO_CONFIGURATION_DATA_RADIO_PACKET_LENGTH, false, false, false);
+ 	  SI4463_StartRx(&si4463, sizeof(incomingBuffer), false, false, false);
 
 	  /*Toggle led for indication*/
 	  HAL_GPIO_WritePin(LED_TX_GPIO_Port,LED_TX_Pin,GPIO_PIN_SET);
@@ -324,9 +324,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   {
 	  /* Handling this interrupt here */
 	  /* Get FIFO data */
-	  SI4463_ReadRxFifo(&si4463, incomingBuffer, RADIO_CONFIGURATION_DATA_RADIO_PACKET_LENGTH);
+	  SI4463_ReadRxFifo(&si4463, incomingBuffer, sizeof(incomingBuffer));
 
-	  HAL_UART_Transmit(&huart2, incomingBuffer,RADIO_CONFIGURATION_DATA_RADIO_PACKET_LENGTH, 100);
+	  HAL_UART_Transmit(&huart2, incomingBuffer, sizeof(incomingBuffer), 100);
 	  /* Clear RX FIFO */
 	  SI4463_ClearRxFifo(&si4463);
 	  /* Start RX again.
@@ -334,7 +334,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	   * state to READY.
 	   * There is re-armed mode for StartRx but it not correctly working */
 	  //SI4463_Rx_Hop	(&si4463, 0x42, 0x0e, 0x27, 0x63, 0x08, 0x77); // 440,500 MHz
-	  SI4463_StartRx(&si4463, RADIO_CONFIGURATION_DATA_RADIO_PACKET_LENGTH, false, false, false);
+	  SI4463_StartRx(&si4463, sizeof(incomingBuffer), false, false, false);
 
 	  /*Toggle led for indication*/
 	  HAL_GPIO_WritePin(LED_RX_GPIO_Port,LED_RX_Pin,GPIO_PIN_SET);

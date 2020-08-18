@@ -47,7 +47,7 @@ si4463_t si4463;
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-uint8_t outBuffer[RADIO_CONFIGURATION_DATA_RADIO_PACKET_LENGTH];
+uint8_t outBuffer[20];
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId myTask02Handle;
@@ -163,7 +163,7 @@ void StartTask02(void const * argument)
 	  outBuffer[7] = 9;
 
 	  //HAL_UART_Transmit(&huart2, (uint8_t*)"123456", 6, 1000);
-	  //SI4463_Transmit(&si4463, 0x01, (uint8_t *)outBuffer , 62);
+	  SI4463_Transmit(&si4463, 0x00, (uint8_t *)outBuffer , 62);
 	  osDelay(200);
   }
   /* USER CODE END StartTask02 */
