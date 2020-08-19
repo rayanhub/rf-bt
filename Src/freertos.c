@@ -25,7 +25,7 @@
 #include "cmsis_os.h"
 
 /* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */     
+/* USER CODE BEGIN Includes */
 #include "si4463.h"
 /* USER CODE END Includes */
 
@@ -47,10 +47,11 @@ si4463_t si4463;
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-uint8_t outBuffer[20];
+uint8_t outBuffer[64];
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId myTask02Handle;
+osThreadId myTask03Handle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -59,6 +60,7 @@ osThreadId myTask02Handle;
 
 void StartDefaultTask(void const * argument);
 void StartTask02(void const * argument);
+void StartTask03(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -113,6 +115,10 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(myTask02, StartTask02, osPriorityNormal, 0, 128);
   myTask02Handle = osThreadCreate(osThread(myTask02), NULL);
 
+  /* definition and creation of myTask03 */
+  osThreadDef(myTask03, StartTask03, osPriorityIdle, 0, 128);
+  myTask03Handle = osThreadCreate(osThread(myTask03), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -153,20 +159,39 @@ void StartTask02(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  outBuffer[0] = 65;
-	  outBuffer[1] = 45;
-	  outBuffer[2] = 99;
-	  outBuffer[3] = 43;
-	  outBuffer[4] = 12;
-	  outBuffer[5] = 98;
-	  outBuffer[6] = 58;
-	  outBuffer[7] = 9;
+	  outBuffer[0] = 1;
+	  outBuffer[1] = 2;
+	  outBuffer[2] = 3;
+	  outBuffer[3] = 4;
+	  outBuffer[4] = 5;
+	  outBuffer[5] = 6;
+	  outBuffer[6] = 7;
+	  outBuffer[7] = 8;
 
-	  //HAL_UART_Transmit(&huart2, (uint8_t*)"123456", 6, 1000);
-	  SI4463_Transmit(&si4463, 0x00, (uint8_t *)outBuffer , 62);
+	  //HAL_UART_Transmit(&huart2, (uint8_t *)outBuffer, 64, 1000);
+	  SI4463_Transmit(&si4463, 0x00, (uint8_t *)outBuffer , 64);
 	  osDelay(200);
   }
   /* USER CODE END StartTask02 */
+}
+
+/* USER CODE BEGIN Header_StartTask03 */
+/**
+* @brief Function implementing the myTask03 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask03 */
+void StartTask03(void const * argument)
+{
+  /* USER CODE BEGIN StartTask03 */
+  /* Infinite loop */
+  for(;;)
+  {
+	BatCheck();
+    osDelay(5000);
+  }
+  /* USER CODE END StartTask03 */
 }
 
 /* Private application code --------------------------------------------------*/

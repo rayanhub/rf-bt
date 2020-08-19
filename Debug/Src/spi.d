@@ -15,9 +15,9 @@ Src/spi.o: ../Src/spi.c \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
- /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
+ /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
@@ -66,11 +66,11 @@ Src/spi.o: ../Src/spi.c \
 
 /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:
 
-/home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h:
-
 /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:
 
 /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h:
+
+/home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h:
 
 /home/rayan/Documents/modem_proj/test-rx_24.04.2020/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 

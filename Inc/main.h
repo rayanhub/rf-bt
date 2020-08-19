@@ -87,6 +87,9 @@ uint8_t Check_UART_Rx_CMD(void);
 void SI4463_WriteRead(const uint8_t * pTxData, uint8_t * pRxData, const uint16_t sizeTxData);
 void SI4463_SPIRead(const uint8_t * pRxData, const uint16_t sizeRxData);
 void SI4463_SPITransmit(const uint8_t * pTxData, const uint16_t sizeTxData);
+void BatCheck(void);
+void SI4463_CheckModule(void);
+void SystemCheck(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
