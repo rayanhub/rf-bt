@@ -167,9 +167,13 @@ void StartTask02(void const * argument)
 	  outBuffer[5] = 6;
 	  outBuffer[6] = 7;
 	  outBuffer[7] = 8;
+	  outBuffer[8] = 9;
+	  outBuffer[9] = 10;
+	  outBuffer[10] = 11;
+	  outBuffer[11] = 12;
 
 	  //HAL_UART_Transmit(&huart2, (uint8_t *)outBuffer, 64, 1000);
-	  SI4463_Transmit(&si4463, 0x00, (uint8_t *)outBuffer , 64);
+	  SI4463_Transmit(&si4463, 0x00, (uint8_t *)outBuffer , 63);
 	  osDelay(200);
   }
   /* USER CODE END StartTask02 */

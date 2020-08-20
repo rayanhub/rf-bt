@@ -1,7 +1,7 @@
 /*
  * si4463.c
  *
- *  Created on: 30 èþí. 2017 ã.
+ *  Created on: 30 ï¿½ï¿½ï¿½. 2017 ï¿½.
  *      Author: MINI
  */
 
@@ -787,7 +787,7 @@ int8_t SI4463_Transmit(const si4463_t * si4463, uint8_t channel, const uint8_t *
 	if((remainBytes >= len) && (remainBytes != SI4463_VALUE_ERR))
 	{
 		result += SI4463_WriteTxFifo(si4463, packet, len);
-		result += SI4463_StartTx(si4463, channel, len, rxState);
+		result += SI4463_StartTx(si4463, channel, 0, rxState); // len
 	}
 	else
 	{
